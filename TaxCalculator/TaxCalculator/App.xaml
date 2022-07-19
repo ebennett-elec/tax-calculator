@@ -24,6 +24,7 @@
         <!-- Title style-->
         <Style x:Key="TitleStyle" TargetType="Label" ApplyToDerivedTypes="True">
             <Setter Property="Margin" Value="20,0,20,20" />
+             <Setter Property="TextColor" Value="Black" />
             <Setter Property="FontAttributes" Value="Bold" />
             <Setter Property="FontSize" Value="Large" />
             <Setter Property="HorizontalOptions" Value="Center" />
@@ -32,11 +33,13 @@
         <!-- Label heading style-->
         <Style x:Key="LabelHeadingStyle" TargetType="Label" ApplyToDerivedTypes="True">
             <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="TextColor" Value="Black" />
         </Style>
         <!-- Entry input style-->
         <Style x:Key="EntryInputStyle" TargetType="Entry" ApplyToDerivedTypes="True">
             <Setter Property="FontAttributes" Value="None" />
             <Setter Property="TextColor" Value="{StaticResource DarkerGray}" />
+            <Setter Property="BackgroundColor" Value="LightGray" />
         </Style>
         <!-- StackLayout style-->
         <Style x:Key="StackLayoutAddressStyle" TargetType="StackLayout" ApplyToDerivedTypes="True">
@@ -49,6 +52,7 @@
         <Style x:Key="PickerAddressStyle" TargetType="Picker" ApplyToDerivedTypes="True">
             <Setter Property="TextColor" Value="{StaticResource DarkerGray}" />
             <Setter Property="TitleColor" Value="Black" />
+            <Setter Property="BackgroundColor" Value="LightGray" />
         </Style>
     </Application.Resources>
 </prism:PrismApplication>
