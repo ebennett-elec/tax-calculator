@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+             x:Class="TaxCalculator.App">
+    <Application.Resources>
+        <!--Colors-->
+        <Color x:Key="DarkerGray">#252525</Color>
+        <!-- Global Frame style-->
+        <Style TargetType="Frame" ApplyToDerivedTypes="True">
+            <Setter Property="Margin" Value="20" />
+            <Setter Property="HasShadow" Value="False" />
+            <Setter Property="BorderColor" Value="DarkSlateGray" />
+        </Style>
+        <!-- Prominent Button style-->
+        <Style x:Key="ProminentButtonStyle" TargetType="Button" ApplyToDerivedTypes="True">
+            <Setter Property="WidthRequest" Value="160" />
+            <Setter Property="VerticalOptions" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="BackgroundColor" Value="DarkSlateGray" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <!-- Title style-->
+        <Style x:Key="TitleStyle" TargetType="Label" ApplyToDerivedTypes="True">
+            <Setter Property="Margin" Value="20,0,20,20" />
+            <Setter Property="FontAttributes" Value="Bold" />
+            <Setter Property="FontSize" Value="Large" />
+            <Setter Property="HorizontalOptions" Value="Center" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+        <!-- Label heading style-->
+        <Style x:Key="LabelHeadingStyle" TargetType="Label" ApplyToDerivedTypes="True">
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+        <!-- Entry input style-->
+        <Style x:Key="EntryInputStyle" TargetType="Entry" ApplyToDerivedTypes="True">
+            <Setter Property="FontAttributes" Value="None" />
+            <Setter Property="TextColor" Value="{StaticResource DarkerGray}" />
+        </Style>
+        <!-- StackLayout style-->
+        <Style x:Key="StackLayoutAddressStyle" TargetType="StackLayout" ApplyToDerivedTypes="True">
+            <Setter Property="WidthRequest" Value="300" />
+            <Setter Property="Margin" Value="0,0,0,10" />
+            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        </Style>
+        <!-- Picker style-->
+        <Style x:Key="PickerAddressStyle" TargetType="Picker" ApplyToDerivedTypes="True">
+            <Setter Property="TextColor" Value="{StaticResource DarkerGray}" />
+            <Setter Property="TitleColor" Value="Black" />
+        </Style>
+    </Application.Resources>
+</prism:PrismApplication>

@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <UserSecretsId>4178eb19-e273-4560-ab17-8dc9fdca53bb</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="18.2.5" />
+    <PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Prism.DryIoc.Forms" />
+    <None Remove="ViewModels\" />
+    <None Remove="Views\" />
+    <None Remove="Services\" />
+    <None Remove="Models\" />
+    <None Remove="ReactiveUI.XamForms" />
+    <None Remove="Mobile.BuildTools" />
+    <None Remove="RestSharp" />
+    <None Remove="Templates\" />
+    <None Remove="Behaviors\" />
+    <None Remove="Converters\" />
+    <None Remove="JSON\" />
+    <None Remove="JSON\ISOStates.json" />
+    <None Remove="JSON\ISOCountries.json" />
+    <None Remove="JSON\ISOCanadaProvinces.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="Views\" />
+    <Folder Include="Services\" />
+    <Folder Include="Models\" />
+    <Folder Include="Templates\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Converters\" />
+    <Folder Include="JSON\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="JSON\ISOStates.json" />
+    <EmbeddedResource Include="JSON\ISOCountries.json" />
+    <EmbeddedResource Include="JSON\ISOCanadaProvinces.json" />
+  </ItemGroup>
+</Project>

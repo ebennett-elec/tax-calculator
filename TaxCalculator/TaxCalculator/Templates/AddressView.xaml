@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:TaxCalculator.Converters"
+    x:Name="address"
+    x:Class="TaxCalculator.Templates.AddressView">
+
+    <ContentView.Resources>
+        <converters:IsRequiredConverter x:Key="isRequiredConverter"/>
+        <converters:ComparisonToEnabledConverter x:Key="comparisonToEnabledConverter"/>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <StackLayout BindingContext="{x:Reference address}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Style="{StaticResource StackLayoutAddressStyle}">
+                <Label Text="Street" Style="{StaticResource LabelHeadingStyle}"/>
+                <Entry Text="{Binding Street}" Style="{StaticResource EntryInputStyle}" />
+            </StackLayout>
+            <StackLayout Style="{StaticResource StackLayoutAddressStyle}">
+                <Label Text="City" Style="{StaticResource LabelHeadingStyle}"/>
+                <Entry Text="{Binding City}" Style="{StaticResource EntryInputStyle}"/>
+            </StackLayout>
+            <StackLayout Style="{StaticResource StackLayoutAddressStyle}">
+                <Label Text="{Binding IsStateRequired, Converter={StaticResource isRequiredConverter}, ConverterParameter='State'}" Style="{StaticResource LabelHeadingStyle}"/>
+                <Picker x:Name="statePicker" Style="{StaticResource PickerAddressStyle}" IsEnabled="{Binding Source={x:Reference countryPicker}, Path=SelectedItem, Converter={StaticResource comparisonToEnabledConverter}, ConverterParameter='United States,Canada'}" Title="Select State" SelectedItem="{Binding State}">
+                </Picker>
+            </StackLayout>
+            <StackLayout Style="{StaticResource StackLayoutAddressStyle}">
+                <Label Text="{Binding IsZipRequired, Converter={StaticResource isRequiredConverter}, ConverterParameter='Zip'}" Style="{StaticResource LabelHeadingStyle}"/>
+                <Entry x:Name="zipEntry" Text="{Binding Zip}" Style="{StaticResource EntryInputStyle}"/>
+            </StackLayout>
+            <StackLayout Style="{StaticResource StackLayoutAddressStyle}">
+                <Label Text="{Binding IsCountryRequired, Converter={StaticResource isRequiredConverter}, ConverterParameter='Country'}" Style="{StaticResource LabelHeadingStyle}"/>
+                <Picker x:Name="countryPicker" Style="{StaticResource PickerAddressStyle}" SelectedItem="{Binding Country}">
+                </Picker>
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
+

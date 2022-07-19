@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+                xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:views="clr-namespace:TaxCalculator.Templates;assembly=TaxCalculator"
+                xmlns:behaviors="clr-namespace:TaxCalculator.Behaviors"
+                x:Class="TaxCalculator.Views.TaxCalculationPage">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Source Address" Style="{StaticResource TitleStyle}"/>
+                        <!-- By the time I finished this, I probably could have bound UIData itselfe instead of these individual properties-->
+                        <views:AddressView Street="{Binding UIData.SourceAddress.Street}" City="{Binding UIData.SourceAddress.City}" State="{Binding UIData.SourceAddress.State}" Zip="{Binding UIData.SourceAddress.Zip}" Country="{Binding UIData.SourceAddress.Country}" IsZipRequired="True" SelectedCountryAbreviation="{Binding UIData.SourceAddress.SelectedCountryAbreviation}" SelectedStateAbreviation="{Binding UIData.SourceAddress.SelectedStateAbreviation}"/>
+                        <Button x:Name="RatesButton" Text="GET RATES" Command="{Binding GetRatesCommand}" Style="{StaticResource ProminentButtonStyle}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Destination Address" Style="{StaticResource TitleStyle}"/>
+                        <views:AddressView Street="{Binding UIData.DestinationAddress.Street}" City="{Binding UIData.DestinationAddress.City}" State="{Binding UIData.DestinationAddress.State}" IsStateRequired="{Binding UIData.DestinationAddress.IsStateRequired}" Zip="{Binding UIData.DestinationAddress.Zip}" Country="{Binding UIData.DestinationAddress.Country}" IsZipRequired="{Binding UIData.DestinationAddress.IsZipRequired}" IsCountryRequired="True" SelectedCountryAbreviation="{Binding UIData.DestinationAddress.SelectedCountryAbreviation}" SelectedStateAbreviation="{Binding UIData.DestinationAddress.SelectedStateAbreviation}"/>
+                        <StackLayout WidthRequest="300" Margin="0,0,0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Amount (Required)" FontAttributes="Bold"/>
+                            <Entry Text="{Binding UIData.Amount} " Keyboard="Numeric" Style="{StaticResource EntryInputStyle}">
+                                <Entry.Behaviors>
+                                    <behaviors:NumericOnlyBehavior/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                        <StackLayout WidthRequest="300" Margin="0,0,0,10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                            <Label Text="Shipping (Required)" FontAttributes="Bold"/>
+                            <Entry Text="{Binding UIData.Shipping} " Keyboard="Numeric" Style="{StaticResource EntryInputStyle}">
+                                <Entry.Behaviors>
+                                    <behaviors:NumericOnlyBehavior/>
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                        <Button x:Name="CalculateTaxButton" Text="CALCULATE TAX" Command="{Binding CalculateTaxCommand}" IsEnabled="{Binding CanExecuteCalculateTax}" Style="{StaticResource ProminentButtonStyle}"/>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
