@@ -82,8 +82,6 @@ namespace TaxCalculator.ViewModels
 
         private async Task ValidateCalculateTaxCommandExecuted()
         {
-            await Task.Delay(50);
-
             switch (UIData.CalculatorType)
             {
                 case TaxServices.taxJar:

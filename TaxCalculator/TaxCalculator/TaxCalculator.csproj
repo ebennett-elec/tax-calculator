@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <UserSecretsId>4178eb19-e273-4560-ab17-8dc9fdca53bb</UserSecretsId>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -18,6 +19,7 @@
     <PackageReference Include="ReactiveUI.XamForms" Version="18.2.5" />
     <PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
     <PackageReference Include="RestSharp" Version="108.0.1" />
+    <PackageReference Include="Xamarin.Forms.Mocks" Version="4.7.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Prism.DryIoc.Forms" />
@@ -35,6 +37,7 @@
     <None Remove="JSON\ISOStates.json" />
     <None Remove="JSON\ISOCountries.json" />
     <None Remove="JSON\ISOCanadaProvinces.json" />
+    <None Remove="Xamarin.Forms.Mocks" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />

@@ -20,11 +20,7 @@ namespace TaxCalculator
         {
             InitializeComponent();
 
-            var result = await NavigationService.NavigateAsync("TaxCalculationPage");
-            if (!result.Success)
-            {
-
-            }
+            var _ = await NavigationService.NavigateAsync("NavigationPage/TaxCalculationPage");
         }
 
         protected override void OnStart ()
@@ -41,12 +37,9 @@ namespace TaxCalculator
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            //Services
+            containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterSingleton<ITaxJarClient, TaxJarClient>();
-
             containerRegistry.Register<ITaxService, TaxService>();
-
-            //Views
             containerRegistry.RegisterForNavigation<TaxCalculationPage, TaxCalculationPageViewModel>();
         }
 

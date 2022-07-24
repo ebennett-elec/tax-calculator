@@ -37,8 +37,10 @@ namespace TaxCalculator.Services
                         return await TaxJarClient.GetTaxRates(data);
                     }
                 default:
-                    return "Unknown Tax Client";
+                    break;
             }
+
+            throw new Exception("TaxClient not configured");
         }
     }
 }

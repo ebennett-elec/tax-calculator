@@ -6,6 +6,7 @@ namespace TaxCalculator.Models
 {
     public enum TaxServices
     {
+        invalid = 0,
         taxJar = 1
     }
 
@@ -43,12 +44,22 @@ namespace TaxCalculator.Models
 
         public DataFromUI(TaxServices calculatorType)
         {
+            Setup(calculatorType);
+        }
+
+        public void Setup(TaxServices calculatorType)
+        {
             CalculatorType = calculatorType;
             SourceAddress = new AddressDataModel();
             DestinationAddress = new AddressDataModel();
 
             Amount = 0.0;
             Shipping = 0.0;
+        }
+
+        public DataFromUI()
+        {
+            Setup(TaxServices.invalid);
         }
     }
 }
